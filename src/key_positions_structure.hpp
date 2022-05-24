@@ -13,6 +13,7 @@ public:
 	//  key_positions and key_times should have the same number of elements
 	cgp::buffer<cgp::vec3> key_positions;
 	cgp::buffer<float> key_times;
+	cgp::hierarchy_mesh_drawable hierarchy;
 
 
 	// This function must be called once at the initialization step.
@@ -36,8 +37,8 @@ public:
 	cgp::trajectory_drawable trajectory;
 private:
 
-	cgp::mesh_drawable sphere_key_positions; // spheres used to display the key positions
-	cgp::mesh_drawable sphere_current;       // sphere used to display the current interpolated position
+	// cgp::mesh_drawable sphere_key_positions; // spheres used to display the key positions
+	// cgp::mesh_drawable sphere_current;       // sphere used to display the current interpolated position
 	cgp::curve_drawable polygon_key_positions; //
 	
 	cgp::picking_structure picking;

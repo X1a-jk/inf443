@@ -1,9 +1,9 @@
-# This is a generic CMake setup for CGP library use
+﻿# This is a generic CMake setup for CGP library use
 cmake_minimum_required(VERSION 3.8) 
 
 # Relative path to the library
-# => You may need to adapt this directory to your relative path in the case you move your directory
-set(PATH_TO_LIBRARY "../../../library/CMakeLists.txt" CACHE PATH "Relative path to CGP library location") 
+# => Adapt this directory to your relative path if needed
+set(PATH_TO_LIBRARY "library/CMakeLists.txt" CACHE PATH "Relative path to CGP library location") 
 
 # Check that the path to the library is correct
 get_filename_component(ABS_PATH_TO_LIBRARY ${PATH_TO_LIBRARY} ABSOLUTE)
@@ -46,7 +46,7 @@ include(${ABS_PATH_TO_LIBRARY})
 #  @src_files: the local file for this project
 #  @src_files_cgp: all files of the cgp library
 #  @src_files_third_party: all third party libraries compiled with the project
-add_executable(${executable_name} ${src_files_cgp} ${src_files_third_party} ${src_files})
+add_executable(${executable_name} ${src_files_cgp} ${src_files_third_party} ${src_files} "src/main.cpp")
 
 
 # Set Compiler for Unix system
@@ -82,4 +82,3 @@ target_link_libraries(${executable_name} ${GLFW_LIBRARIES})
 if(UNIX)
    target_link_libraries(${executable_name} dl) #dlopen is required by Glad on Unix
 endif()
-
